@@ -5,7 +5,8 @@ import { createLocalService } from "./server/local"
 import { createRPCServer } from "./server/rpc"
 import {colors} from 'consola/utils'
 import type { NextConfig } from 'next/dist/server/config-shared'
-import { LOCAL_CLIENT_PORT } from '@next-devtools/shared'
+import { LOCAL_CLIENT_PORT } from '@next-atlas/shared'
+import {ip} from 'address'
 
 export class Plugin {
     context: Context

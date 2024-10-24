@@ -9,13 +9,13 @@ export async function createLocalService() {
     execa('npx', ['next', 'dev'], {
       cwd: clientDir,
       stdio: 'inherit',
-      env: { PORT },
+      env: { PORT, NODE_ENV: process.env.NODE_ENV || 'development' },
     })
   } else {
     execa('node', ['server.js'], {
       cwd: clientDir,
       stdio: 'inherit',
-      env: { PORT },
+      env: { PORT, NODE_ENV: process.env.NODE_ENV || 'production' },
     })
   }
 }

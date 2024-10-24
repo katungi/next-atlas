@@ -1,7 +1,7 @@
 import { WebSocketServer } from 'ws'
 import { WebpackOptionsNormalized } from "webpack";
 import { applyWSSHandler } from '@trpc/server/adapters/ws'
-import { RPC_SERVER_PORT } from '@next-devtools/shared'
+import { RPC_SERVER_PORT } from '@next-atlas/shared'
 import { appRouter, Context } from "./router";
 import { createContext } from './context';
 
