@@ -1,19 +1,56 @@
 {
-  "name": "next-atlas",
+  "name": "@next-atlas/monorepo",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "preinstall": "npx only-allow pnpm",
+    "up": "taze major -Ir",
+    "lint": "eslint . --fix",
+    "prepare": "husky install",
+    "release": "release-it",
+    "preRelease": "release-it --preRelease=beta --npm.tag=beta",
+    "release:major": "release-it major",
+    "release:minor": "release-it minor",
+    "release:patch": "release-it patch",
+    "publish": "pnpm run build && pnpm -r publish",
+    "build": "turbo build --force",
+    "dev": "npm-run-all --parallel dev:devtools dev:app",
+    "dev:devtools": "turbo dev",
+    "dev:app": "turbo dev:app",
+    "dev:pages": "turbo dev:pages",
+    "docs": "turbo docs",
+    "docs:build": "turbo docs:build"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@release-it/bumper": "^6.0.1",
+    "@release-it/conventional-changelog": "^8.0.1",
+    "@xystack/style-guide": "^0.0.3",
+    "commitizen": "^4.3.0",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild-plugin-file-path-extensions": "^2.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
+    "release-it": "^17.0.1",
+    "rimraf": "^5.0.5",
+    "taze": "^0.13.1",
+    "tsup": "^8.0.1",
     "turbo": "^2.2.3",
     "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@types/node": "^20"
   }
 }

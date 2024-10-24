@@ -1,12 +1,11 @@
 {
-  "name": "client",
+  "name": "@next-atlas/client",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "postbuild": "sh ./postbuild.sh"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",

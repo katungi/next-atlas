@@ -1,0 +1,86 @@
+{
+  "name": "@next-atlas/core",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katungi/next-atlas",
+    "directory": "packages/core"
+  },
+  "files": [
+    "*.cjs",
+    "*.d.ts",
+    "*.js",
+    "*.mjs",
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "dev": "./src/index.ts",
+      "types": "./dist/index.d.mts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./plugin": {
+      "dev": "./src/plugin.ts",
+      "types": "./plugin.d.ts",
+      "require": "./dist/plugin.js",
+      "import": "./dist/plugin.mjs"
+    },
+    "./types": {
+      "types": "./types.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "katungi",
+    "email": "dankatdennis@gmail.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/katungi/next-atlas"
+    }
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "cross-env DEV=false tsup",
+    "dev": "cross-env DEV=true tsup --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@next-atlas/shared": "workspace:*",
+    "@next/env": "^14.0.4",
+    "@trpc/client": "^10.45.0",
+    "@trpc/server": "^10.45.0",
+    "address": "^2.0.1",
+    "consola": "^3.2.3",
+    "dotenv": "^16.3.1",
+    "execa": "^8.0.1",
+    "fast-glob": "^3.3.2",
+    "get-port-please": "^3.1.1",
+    "mime-types": "^2.1.35",
+    "react-dev-inspector": "^2.0.1",
+    "react-docgen": "^7.0.2",
+    "semver": "^7.5.4",
+    "ws": "^8.16.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "@types/react": "^18.2.47",
+    "@types/semver": "^7.5.6",
+    "@types/ws": "^8.5.10",
+    "next": "^14.0.4",
+    "webpack": "^5.89.0"
+  },
+  "keywords": []
+}
